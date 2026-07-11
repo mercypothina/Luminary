@@ -39,6 +39,30 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.1 })
 document.querySelectorAll('.reveal, .stats-section').forEach(el => observer.observe(el))
 
+// ── ARTWORK MODAL (lightbox for viewing a full-size piece) ──
+const artworkModal = document.getElementById('artworkModal')
+const modalOverlay = document.getElementById('modalOverlay')
+const modalClose = document.getElementById('modalClose')
+
+function openArtworkModal(art) {
+    document.getElementById('modalImage').src = art.imageUrl || ''
+    document.getElementById('modalImage').alt = art.title
+    document.getElementById('modalCategory').textContent = art.category
+    document.getElementById('modalTitle').textContent = art.title
+    document.getElementById('modalDescription').textContent = art.description
+    artworkModal.classList.add('open')
+    document.body.style.overflow = 'hidden'
+}
+
+function closeArtworkModal() {
+    artworkModal.classList.remove('open')
+    document.body.style.overflow = ''
+}
+
+modalOverlay.addEventListener('click', closeArtworkModal)
+modalClose.addEventListener('click', closeArtworkModal)
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeArtworkModal() })
+
 // ── GALLERY ──
 let currentFilter = 'all'
 let searchQuery = ''
@@ -72,6 +96,7 @@ async function loadGallery() {
                     <p>${art.description}</p>
                     <span class="art-tag">${art.category}</span>
                 </div>`
+            card.addEventListener('click', () => openArtworkModal(art))
             grid.appendChild(card)
             setTimeout(() => { card.classList.add('visible'); observer.observe(card) }, i * 80)
         })
