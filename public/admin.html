@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luminary Admin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <nav class="admin-nav">
+        <div class="admin-logo">✦ Luminary Admin</div>
+        <a href="index.html" class="btn-back">← Back to Site</a>
+    </nav>
+
+    <div class="admin-container">
+
+        <div class="stats-row" id="statsRow">
+            <div class="stat-card"><h3 id="statArtworks">-</h3><p>Total Artworks</p></div>
+            <div class="stat-card"><h3 id="statCommissions">-</h3><p>Total Commissions</p></div>
+            <div class="stat-card pending"><h3 id="statPending">-</h3><p>Pending Requests</p></div>
+            <div class="stat-card"><h3 id="statReviews">-</h3><p>Reviews</p></div>
+        </div>
+
+        <div class="admin-section">
+            <h2>Upload New Artwork</h2>
+            <div class="upload-form">
+                <input type="text" id="artTitle" placeholder="Artwork Title">
+                <select id="artCategory">
+                    <option value="">Select Category</option>
+                    <option value="portrait">Portrait</option>
+                    <option value="sketch">Sketch</option>
+                    <option value="painting">Painting</option>
+                    <option value="tissue">Tissue Art</option>
+                </select>
+                <textarea id="artDesc" rows="3" placeholder="Description"></textarea>
+                <div class="upload-area" id="uploadArea">
+                    <input type="file" id="artImage" accept="image/*" hidden>
+                    <label for="artImage" class="upload-label">
+                        📸 Click to upload image (max 5MB)
+                    </label>
+                    <p id="fileName" class="file-name"></p>
+                </div>
+                <label class="checkbox-label">
+                    <input type="checkbox" id="artFeatured"> Mark as Featured
+                </label>
+                <button class="btn-upload" id="uploadBtn">Upload Artwork</button>
+                <p class="upload-success" id="uploadSuccess" style="display:none">✅ Artwork uploaded!</p>
+                <p class="upload-error" id="uploadError" style="display:none"></p>
+            </div>
+        </div>
+
+        <div class="admin-section">
+            <h2>Manage Artworks</h2>
+            <div class="artworks-list" id="adminArtworks">Loading...</div>
+        </div>
+
+        <div class="admin-section">
+            <h2>Commission Requests</h2>
+            <div class="commissions-list" id="adminCommissions">Loading...</div>
+        </div>
+
+    </div>
+    <script src="admin.js"></script>
+</body>
+</html>

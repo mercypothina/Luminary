@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luminary – Art by Mercy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-trail" id="cursorTrail"></div>
+
+    <nav class="navbar" id="navbar">
+        <div class="nav-logo">✦ Luminary</div>
+        <div class="nav-links" id="navLinks">
+            <a href="#home">Home</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#commission">Commission</a>
+            <a href="#testimonials">Reviews</a>
+            <a href="#contact">Contact</a>
+            <a href="admin.html" class="admin-link">Admin</a>
+        </div>
+        <button class="hamburger" id="hamburger">☰</button>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <p class="hero-label">✦ Original Art & Commissions</p>
+            <h1 class="hero-title">Where Every<br><span class="gradient-text">Stroke Tells</span><br>A Story.</h1>
+            <p class="hero-subtitle">Handcrafted pencil sketches, portraits & paintings — brought to life with passion and precision.</p>
+            <div class="hero-btns">
+                <a href="#gallery" class="btn btn-primary">View Gallery</a>
+                <a href="#commission" class="btn btn-outline">Request Commission</a>
+            </div>
+        </div>
+        <div class="hero-art">
+            <div class="floating-card">✏️ Pencil Portraits</div>
+            <div class="floating-card fc2">🎨 Color Paintings</div>
+            <div class="floating-card fc3">🖼️ Tissue Art</div>
+        </div>
+        <div class="scroll-indicator"><span>Scroll</span><div class="scroll-line"></div></div>
+    </section>
+
+    <section class="stats-section">
+        <div class="stat-item"><h3 class="counter" data-target="50">0</h3><p>Artworks Created</p></div>
+        <div class="stat-item"><h3 class="counter" data-target="30">0</h3><p>Happy Clients</p></div>
+        <div class="stat-item"><h3 class="counter" data-target="4">0</h3><p>Art Styles</p></div>
+        <div class="stat-item"><h3 class="counter" data-target="100">0</h3><p>% Passion</p></div>
+    </section>
+
+    <section class="gallery-section" id="gallery">
+        <div class="section-header">
+            <span class="section-label">✦ My Work</span>
+            <h2 class="section-title">Art Gallery</h2>
+            <p class="section-sub">Each piece is crafted with love, patience and precision</p>
+        </div>
+        <div class="gallery-controls">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="🔍 Search artworks...">
+            </div>
+            <div class="filter-tabs">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="portrait">Portraits</button>
+                <button class="filter-btn" data-filter="sketch">Sketches</button>
+                <button class="filter-btn" data-filter="painting">Paintings</button>
+                <button class="filter-btn" data-filter="tissue">Tissue Art</button>
+            </div>
+        </div>
+        <div class="gallery-grid" id="galleryGrid">
+            <div class="loading">Loading artworks...</div>
+        </div>
+        <div class="no-artworks" id="noArtworks" style="display:none">
+            <p>No artworks found. Try a different filter!</p>
+        </div>
+    </section>
+
+    <section class="about-section" id="about">
+        <div class="about-content">
+            <div class="about-text">
+                <span class="section-label">✦ About Me</span>
+                <h2>The Artist Behind<br>the <span class="gradient-text">Canvas</span></h2>
+                <p>I'm Mercy — a passionate artist and computer science student from Visakhapatnam. I've been drawing since childhood, specializing in hyperrealistic pencil portraits, spiritual art, tissue paintings and vibrant color work.</p>
+                <p>Every artwork carries emotion, story and soul. From pencil strokes to pillar paintings — I create what I feel.</p>
+                <div class="art-skills">
+                    <span class="art-skill">✏️ Pencil Sketches</span>
+                    <span class="art-skill">🎨 Color Paintings</span>
+                    <span class="art-skill">🌸 Tissue Art</span>
+                    <span class="art-skill">👤 Portraits</span>
+                </div>
+                <a href="#contact" class="btn btn-primary" style="margin-top:28px;display:inline-block">Commission My Art</a>
+            </div>
+            <div class="about-visual">
+                <div class="about-card">
+                    <div class="about-emoji">🎨</div>
+                    <p class="quote">"Art is not what you see, but what you make others see."</p>
+                    <p class="quote-author">— Edgar Degas</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="commission-section" id="commission">
+        <div class="section-header">
+            <span class="section-label">✦ Get Your Art</span>
+            <h2 class="section-title">Commission Pricing</h2>
+            <p class="section-sub">Tell me your vision — I'll bring it to life</p>
+        </div>
+        <div class="commission-grid">
+            <div class="commission-card">
+                <div class="commission-icon">✏️</div>
+                <h3>Pencil Portrait</h3>
+                <p>Hyperrealistic pencil sketch — single or couple portrait</p>
+                <div class="price">Starting ₹500</div>
+                <div class="details"><span>📅 3–5 days</span><span>📄 A4 size</span></div>
+                <button class="btn btn-primary" onclick="scrollToContact('Pencil Portrait')">Request Now</button>
+            </div>
+            <div class="commission-card featured">
+                <div class="popular-badge">Most Popular</div>
+                <div class="commission-icon">🎨</div>
+                <h3>Color Painting</h3>
+                <p>Vibrant color painting — canvas, wall or any surface</p>
+                <div class="price">Starting ₹1200</div>
+                <div class="details"><span>📅 5–7 days</span><span>🖼️ Any size</span></div>
+                <button class="btn btn-primary" onclick="scrollToContact('Color Painting')">Request Now</button>
+            </div>
+            <div class="commission-card">
+                <div class="commission-icon">🌸</div>
+                <h3>Tissue Art</h3>
+                <p>Unique textured art using tissue — spiritual or custom</p>
+                <div class="price">Starting ₹800</div>
+                <div class="details"><span>📅 4–6 days</span><span>📄 A4 size</span></div>
+                <button class="btn btn-primary" onclick="scrollToContact('Tissue Art')">Request Now</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials-section" id="testimonials">
+        <div class="section-header">
+            <span class="section-label">✦ Kind Words</span>
+            <h2 class="section-title">What Clients Say</h2>
+        </div>
+        <div class="testimonials-grid" id="testimonialsGrid">
+            <div class="loading">Loading reviews...</div>
+        </div>
+        <div class="leave-review">
+            <h3>Loved your artwork? Leave a review!</h3>
+            <div class="review-form">
+                <input type="text" id="reviewName" placeholder="Your Name">
+                <input type="text" id="reviewArtType" placeholder="Art Type (e.g. Pencil Portrait)">
+                <select id="reviewRating">
+                    <option value="">Select Rating</option>
+                    <option value="5">⭐⭐⭐⭐⭐ 5 Stars</option>
+                    <option value="4">⭐⭐⭐⭐ 4 Stars</option>
+                    <option value="3">⭐⭐⭐ 3 Stars</option>
+                </select>
+                <textarea id="reviewText" rows="3" placeholder="Share your experience..."></textarea>
+                <button class="btn btn-primary" id="submitReview">Submit Review</button>
+                <p class="success-msg" id="reviewSuccess" style="display:none">✅ Review submitted! Thank you!</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+        <div class="section-header">
+            <span class="section-label">✦ Let's Talk</span>
+            <h2 class="section-title">Get In Touch</h2>
+        </div>
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <h3>Ready to create something beautiful?</h3>
+                <p>Fill in the form and I'll get back to you within 24 hours with pricing and timeline details.</p>
+                <div class="contact-details">
+                    <div class="contact-item">📍 Visakhapatnam, Andhra Pradesh</div>
+                    <div class="contact-item">✉️ pothinamercy@gmail.com</div>
+                    <div class="contact-item">🎨 Available for commissions</div>
+                </div>
+                <a href="https://wa.me/919676258133?text=Hi Mercy! I'd like to commission an artwork." class="whatsapp-btn" target="_blank">
+                    💬 Chat on WhatsApp
+                </a>
+            </div>
+            <div class="contact-form">
+                <input type="text" id="nameInput" placeholder="Your Name">
+                <input type="email" id="emailInput" placeholder="your@email.com">
+                <input type="tel" id="phoneInput" placeholder="Phone Number (optional)">
+                <select id="typeInput">
+                    <option value="">Select Commission Type</option>
+                    <option value="Pencil Portrait">Pencil Portrait</option>
+                    <option value="Color Painting">Color Painting</option>
+                    <option value="Tissue Art">Tissue Art</option>
+                    <option value="Custom Artwork">Custom Artwork</option>
+                    <option value="General Inquiry">General Inquiry</option>
+                </select>
+                <textarea id="messageInput" rows="4" placeholder="Tell me about your vision..."></textarea>
+                <button class="btn btn-primary" id="submitBtn">Send Message ✦</button>
+                <p class="success-msg" id="successMsg" style="display:none">✅ Message sent! I'll get back to you soon.</p>
+                <p class="error-msg" id="errorMsg" style="display:none">❌ Please fill all required fields!</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-logo">✦ Luminary</div>
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#commission">Commission</a>
+                <a href="#testimonials">Reviews</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Crafted with ❤️ by Mercy Pothina</p>
+            <p class="copyright">© 2026 Luminary. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
