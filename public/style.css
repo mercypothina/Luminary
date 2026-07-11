@@ -147,6 +147,19 @@ body { background: var(--bg); color: var(--white); font-family: var(--font-sans)
 .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 
+/* ── ARTWORK MODAL (lightbox) ── */
+.artwork-modal { position: fixed; inset: 0; z-index: 2000; display: none; align-items: center; justify-content: center; padding: 40px; }
+.artwork-modal.open { display: flex; }
+.artwork-modal-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(4px); cursor: none; }
+.artwork-modal-content { position: relative; background: var(--bg3); border: 1px solid var(--border); border-radius: 16px; max-width: 900px; width: 100%; max-height: 90vh; overflow-y: auto; z-index: 1; display: grid; grid-template-columns: 1.2fr 1fr; animation: modalIn 0.3s ease; }
+@keyframes modalIn { from { opacity: 0; transform: scale(0.96); } to { opacity: 1; transform: scale(1); } }
+.artwork-modal-content img { width: 100%; height: 100%; max-height: 90vh; object-fit: cover; display: block; }
+.modal-info { padding: 32px; display: flex; flex-direction: column; gap: 14px; align-self: center; }
+.modal-info h3 { font-family: var(--font-serif); font-size: 26px; }
+.modal-info p { color: var(--gray); font-size: 15px; line-height: 1.8; }
+.modal-close { position: absolute; top: 16px; right: 16px; z-index: 2; background: rgba(8,8,8,0.6); border: 1px solid var(--border); color: var(--white); width: 36px; height: 36px; border-radius: 50%; font-size: 22px; line-height: 1; cursor: none; display: flex; align-items: center; justify-content: center; transition: all 0.3s; }
+.modal-close:hover { background: var(--gold); color: #080808; }
+
 @media (max-width: 768px) {
     .navbar { padding: 16px 24px; }
     .nav-links { display: none; position: absolute; top: 70px; left: 0; right: 0; background: rgba(8,8,8,0.98); flex-direction: column; padding: 24px; gap: 20px; border-bottom: 1px solid var(--border); }
@@ -162,4 +175,7 @@ body { background: var(--bg); color: var(--white); font-family: var(--font-sans)
     .footer { padding: 40px 24px 24px; }
     .footer-top { flex-direction: column; gap: 20px; text-align: center; }
     .search-box input { width: 100%; }
+    .artwork-modal { padding: 16px; }
+    .artwork-modal-content { grid-template-columns: 1fr; }
+    .artwork-modal-content img { max-height: 280px; }
 }
