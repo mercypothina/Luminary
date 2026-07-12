@@ -111,8 +111,13 @@ const Testimonial = mongoose.model('Testimonial', testimonialSchema)
 app.get('/artworks', async (req, res) => {
     try {
         const { category, search } = req.query
+        const standardCategories = ['portrait', 'sketch', 'painting', 'tissue']
         let query = {}
-        if (category && category !== 'all') query.category = category
+        if (category === 'others') {
+            query.category = { $nin: standardCategories }
+        } else if (category && category !== 'all') {
+            query.category = category
+        }
         if (search) query.title = { $regex: search, $options: 'i' }
         const artworks = await Artwork.find(query).sort({ createdAt: -1 })
         res.status(200).json({ success: true, count: artworks.length, data: artworks })
