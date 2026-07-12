@@ -54,9 +54,18 @@ document.getElementById('artImage').addEventListener('change', e => {
     document.getElementById('fileName').textContent = file ? `Selected: ${file.name}` : ''
 })
 
+// Show/hide custom category input
+document.getElementById('artCategory').addEventListener('change', e => {
+    const otherInput = document.getElementById('artCategoryOther')
+    otherInput.style.display = e.target.value === 'others' ? 'block' : 'none'
+    if (e.target.value !== 'others') otherInput.value = ''
+})
+
 document.getElementById('uploadBtn').addEventListener('click', async () => {
     const title = document.getElementById('artTitle').value.trim()
-    const category = document.getElementById('artCategory').value
+    const categorySelect = document.getElementById('artCategory').value
+    const categoryOther = document.getElementById('artCategoryOther').value.trim()
+    const category = categorySelect === 'others' ? categoryOther : categorySelect
     const desc = document.getElementById('artDesc').value.trim()
     const image = document.getElementById('artImage').files[0]
     const featured = document.getElementById('artFeatured').checked
@@ -83,6 +92,8 @@ document.getElementById('uploadBtn').addEventListener('click', async () => {
         successEl.style.display = 'block'
         document.getElementById('artTitle').value = ''
         document.getElementById('artCategory').value = ''
+        document.getElementById('artCategoryOther').value = ''
+        document.getElementById('artCategoryOther').style.display = 'none'
         document.getElementById('artDesc').value = ''
         document.getElementById('artImage').value = ''
         document.getElementById('artFeatured').checked = false
